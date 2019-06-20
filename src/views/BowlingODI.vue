@@ -1,31 +1,53 @@
 <template>
   <div class="bowling-odi">
 
+    <div class="card-center">
+          <span class="title-imp">Factors determining the performance of players(Bowling) in ODI Match</span>
+          <hr>
+          <br>
+          <span class="result-ps"> <b>The following analysis is based on the fact that Sachin Tendulkar is predominantly a Batsman, however being a verstile player that he is 
+            his bowling career (as compared legends of his contemporary era batsman) showcases various known facts:-
+          </b>
+          </span>
+          <br>
+          
+          <span class="result-ps">1. <b>High Bowling Strike rate</b> 
+          </span>
+          <span class="result-ps">2. <b>Less Economy Rate</b> 
+          </span>
+          <span class="result-ps" >3. <b>low Bowling Average</b> 
+          </span>
+          
+        </div>
+
+
       <div class="card">
             <PlayerDetailsCard :person="focusedPlayer" />
             <Chart
             titleText="Bowling Strike Rate"
             subTitleText="Getting batsman out faster is primary target"
-            chartType="line"
+            chartType="bar"
             :chartData="StrikeRateData.data"
             :chartOptions="StrikeRateData.options"
             :parentStyle="chartContainerStyle"
             />
             <Inference
-            winner="both Michael Bevan & Sachin Tendulkar"
-            titleText="having high strike rate"
+            winner="Both Michael Bevan & Sachin Tendulkar are winner in the following category"
+           titleText="Bowling strike rate is a measure of how frequently a
+                       bowler achieves the primary goal of bowling, namely taking wickets "
+            inference=  "Bowling strike rate"   
             />
             <br/>
-            <el-popover
-              placement="top-start"
-              title="Strike Rate"
-              width="200"
-              trigger="hover"
-              content="Bowling strike rate is a measure of how frequently a
-                       bowler achieves the primary goal of bowling, namely taking wickets ">
-              <el-button slot="reference">Define Strike rate</el-button>
-            </el-popover>
+            
+        
+
         </div>
+        <br>
+        <br>
+        <br>
+        
+
+
 
       <div class="card">
             <Chart
@@ -37,22 +59,20 @@
             :parentStyle="chartContainerStyle"
             />
             <Inference
-            inference="Though score of Ricky Ponting looks better but he bowled in only 25 overs
-                       & others bowled in atleast 300 overs."
-            winner="Sir Viv Richards"
-            titleText="average runs conceded"
+            
+            winner="Brian Lara is the winner in the following category."
+            inference="Average runs conceded"
+             titleText="Economy rate is the average number of runs conceded per over
+                      in cricket. The calculation is (Econ = Runs/Overs bowled)."
             />
             <br>
-            <el-popover
-              placement="top-start"
-              title="Economy rate"
-              width="200"
-              trigger="hover"
-              content="Economy rate is the average number of runs conceded per over
-                      in cricket. The calculation is (Econ = Runs/Overs bowled).">
-              <el-button slot="reference">Define Economy rate</el-button>
-            </el-popover>
-      </div>
+         </div>
+      <br>
+        <br>
+        <br>
+        
+
+
 
       <div class="card">
             <Chart
@@ -63,20 +83,19 @@
             :chartOptions="MaidenOverData.options"
             :parentStyle="chartContainerStyle"
             />
-            <Inference
-            winner="Sir Viv Richards & Sachin Tendulkar"
-            titleText="bowling maiden overs maximum times"
-            />
+            
             <br>
-            <el-popover
-              placement="top-start"
-              title="Maiden over"
-              width="200"
-              trigger="hover"
-              content="A maiden over is one in which no  runs are scored.">
-              <el-button slot="reference">Define Maiden over</el-button>
-            </el-popover>
-        </div>
+            <Inference
+            winner="Sir Viv Richards & Sachin Tendulkar are the winner in the following category"
+           titleText="A maiden over is one in which no  runs are scored."
+            inference="High no. of Maiden over"
+            />
+          </div>   
+       <br>
+        <br>
+        <br>
+        
+
 
         <div class="card">
             <Chart
@@ -88,19 +107,19 @@
             :parentStyle="chartContainerStyle"
             />
             <Inference
-            winner="Sachin Tendulkar & Michael Bevan"
-            titleText="bowling average"
+            winner="Sachin Tendulkar & Michael Bevan are the winner in the following category."
+            inference="Average runs conceded/Bowling Average"
+            titleText="Number of wickets taken for runs  conceded in all matches."
+
             />
             <br>
-            <el-popover
-              placement="top-start"
-              title="Bowling Average"
-              width="200"
-              trigger="hover"
-              content=" Number of wickets taken for runs  conceded in all matches.">
-              <el-button slot="reference">Define Bowling Average</el-button>
-            </el-popover>
+            
       </div>
+      <br>
+        <br>
+        <br>
+        
+
 
       <div class="card">
             <Chart
@@ -112,20 +131,21 @@
             :parentStyle="chartContainerStyle"
             />
             <Inference
-            winner="Sachin Tendulkar & Ricky Ponting"
-            titleText="catches taken"
+            winner="Sachin Tendulkar & Ricky Ponting are the winner in the following category"
+           titleText="The total no. of catches taken is how good and ready as a fielder a player is."
+            inference="Catches Taken"
             />
       </div>
+      <br>
+        <br>
+        <br>
+        
+     <div class="card-bottom">
+          <h1>  Elemental Conclusion - Bowling ODI</h1>
+          <span class="result"> Sachin Tendulkar Won most of the category </span>
+          
+        </div>
 
-      <div class="card center">
-          <h1>The ODI verdict - Bowling</h1>
-          <span class="result"> Sachin Tendulkar Wins !! </span>
-          <span class="result-ps">
-            Maximum number of wins in individual components is neutral.
-            <br>
-            But, Sachin Tendulkar is second in all factors & hence the winner.
-          </span>
-      </div>
 
   </div>
 </template>
@@ -157,16 +177,22 @@ export default {
           responsive: true,
           scales: {
             xAxes: [{
-              ticks: {
-                beginAtZero: true,
-                maxRotation: 0,
-                minRotation: 0,
-              },
+              stacked: true,
+              maxBarThickness: 70,
               gridLines: {
                 offsetGridLines: true,
+                color: 'rgba(255, 0, 0, 1)'
               },
-              barThickness: 50,
             }],
+            yAxes: [{
+              stacked: true,
+              
+              gridLines: {
+                offsetGridLines: true,
+                color: 'rgba(255, 0, 0, 1)'
+              },
+            }],
+            
           },
         },
         data: {
@@ -177,6 +203,25 @@ export default {
       StrikeRateData: {
         options: {
           responsive: true,
+          scales: {
+            xAxes: [{
+              stacked: true,
+              maxBarThickness: 70,
+              gridLines: {
+                offsetGridLines: true,
+                color: 'rgba(255, 0, 0, 1)'
+              },
+            }],
+            yAxes: [{
+              stacked: true,
+              
+              gridLines: {
+                offsetGridLines: true,
+                color: 'rgba(255, 0, 0, 1)'
+              },
+            }],
+            
+          },
           onClick: (evt, item) => {
             if (item && item[0] && item[0]._index != null) {
               this.focusedPlayer = locationBowlingODI[item[0]._index];
@@ -193,16 +238,22 @@ export default {
           responsive: true,
           scales: {
             xAxes: [{
-              ticks: {
-                beginAtZero: true,
-                maxRotation: 0,
-                minRotation: 0,
-              },
+              stacked: true,
+              maxBarThickness: 70,
               gridLines: {
                 offsetGridLines: true,
+                color: 'rgba(255, 0, 0, 1)'
               },
-              barThickness: 50,
             }],
+            yAxes: [{
+              stacked: true,
+              
+              gridLines: {
+                offsetGridLines: true,
+                color: 'rgba(255, 0, 0, 1)'
+              },
+            }],
+            
           },
         },
         data: {
@@ -215,16 +266,22 @@ export default {
           responsive: true,
           scales: {
             xAxes: [{
-              ticks: {
-                beginAtZero: true,
-                maxRotation: 0,
-                minRotation: 0,
-              },
+              stacked: true,
+              maxBarThickness: 70,
               gridLines: {
                 offsetGridLines: true,
+                color: 'rgba(255, 0, 0, 1)'
               },
-              barThickness: 50,
             }],
+            yAxes: [{
+              stacked: true,
+              
+              gridLines: {
+                offsetGridLines: true,
+                color: 'rgba(255, 0, 0, 1)'
+              },
+            }],
+            
           },
         },
         data: {
@@ -235,6 +292,25 @@ export default {
       CatchesTakenData: {
         options: {
           responsive: true,
+          scales: {
+            xAxes: [{
+              stacked: true,
+              maxBarThickness: 70,
+              gridLines: {
+                offsetGridLines: true,
+                color: 'rgba(255, 0, 0, 1)'
+              },
+            }],
+            yAxes: [{
+              stacked: true,
+              
+              gridLines: {
+                offsetGridLines: true,
+                color: 'rgba(255, 0, 0, 1)'
+              },
+            }],
+            
+          },
         },
         data: {
           labels: [],
@@ -259,21 +335,21 @@ export default {
         label: 'Avg Runs Conceded in all Matches',
         data: economyRateData.map(t => t.economy_rate),
         backgroundColor: [
-          'rgb(255, 224, 230, 0.5)',
-          'rgb(255, 226, 217, 0.5)',
-          'rgb(255, 245, 221, 0.5)',
-          'rgb(219, 242, 242, 0.5)',
-          'rgb(215, 236, 251, 0.5)',
+           'rgb(218,20,255)',
+          'rgb(57,255,20)',
+          'rgb(255,255,0)',
+          'rgb(0,255,255)',
+          'rgb(255,128,0)',
           'rgb(235, 224, 255, 0.5)',
           'rgb(244, 245, 245, 0.5)',
         ],
         borderWidth: 0.8,
         borderColor: [
-          'rgb(255, 99, 132, 1)',
-          'rgb(255, 159, 64, 1)',
-          'rgb(255, 205, 86, 1)',
-          'rgb(75, 192, 192, 1)',
-          'rgb(54, 162, 235, 1)',
+           'rgb(243,179,255)',
+          'rgb(12,79,0)',
+          'rgb(255,123,0)',
+          'rgb(0,107,255)',
+          'rgb(255,170,0)',
           'rgb(153, 102, 255, 1)',
           'rgb(201, 203, 207, 1)',
         ],
@@ -304,21 +380,21 @@ export default {
         label: 'Strike Rate',
         data: strikeRateData.map(t => t.strike_rate),
         backgroundColor: [
-          'rgb(219, 242, 242, 0.5)',
-          'rgb(215, 236, 251, 0.5)',
-          'rgb(235, 224, 255, 0.5)',
-          'rgb(255, 224, 230, 0.5)',
-          'rgb(255, 226, 217, 0.5)',
+          'rgb(218,20,255)',
+          'rgb(57,255,20)',
+          'rgb(255,255,0)',
+          'rgb(0,255,255)',
+          'rgb(255,128,0)',
           'rgb(255, 245, 221, 0.5)',
           'rgb(244, 245, 245, 0.5)',
         ],
         borderWidth: 0.8,
         borderColor: [
-          'rgb(75, 192, 192, 1)',
-          'rgb(54, 162, 235, 1)',
-          'rgb(153, 102, 255, 1)',
-          'rgb(255, 99, 132, 1)',
-          'rgb(255, 159, 64, 1)',
+          'rgb(243,179,255)',
+          'rgb(12,79,0)',
+          'rgb(255,123,0)',
+          'rgb(0,107,255)',
+          'rgb(255,170,0)',
           'rgb(255, 205, 86, 1)',
           'rgb(201, 203, 207, 1)',
         ],
@@ -349,21 +425,21 @@ export default {
         label: 'Percentage of Average Maiden Overs',
         data: maidenOverData.map(t => t.maiden_overs),
         backgroundColor: [
-          'rgb(255, 224, 230, 0.5)',
-          'rgb(215, 236, 251, 0.5)',
-          'rgb(255, 226, 217, 0.5)',
-          'rgb(255, 245, 221, 0.5)',
-          'rgb(219, 242, 242, 0.5)',
+          'rgb(218,20,255)',
+          'rgb(57,255,20)',
+          'rgb(255,255,0)',
+          'rgb(0,255,255)',
+          'rgb(255,128,0)',
           'rgb(235, 224, 255, 0.5)',
           'rgb(244, 245, 245, 0.5)',
         ],
         borderWidth: 0.8,
         borderColor: [
-          'rgb(255, 99, 132, 1)',
-          'rgb(54, 162, 235, 1)',
-          'rgb(255, 159, 64, 1)',
-          'rgb(255, 205, 86, 1)',
-          'rgb(75, 192, 192, 1)',
+           'rgb(243,179,255)',
+          'rgb(12,79,0)',
+          'rgb(255,123,0)',
+          'rgb(0,107,255)',
+          'rgb(255,170,0)',
           'rgb(153, 102, 255, 1)',
           'rgb(201, 203, 207, 1)',
         ],
@@ -394,21 +470,21 @@ export default {
         label: 'Percentage of wickets taken for runs conceded',
         data: wicketsRunsConcededData.map(t => t.wickets),
         backgroundColor: [
-          'rgb(255, 224, 230, 0.5)',
-          'rgb(255, 226, 217, 0.5)',
-          'rgb(255, 245, 221, 0.5)',
-          'rgb(219, 242, 242, 0.5)',
-          'rgb(215, 236, 251, 0.5)',
+          'rgb(218,20,255)',
+          'rgb(57,255,20)',
+          'rgb(255,255,0)',
+          'rgb(0,255,255)',
+          'rgb(255,128,0)',
           'rgb(235, 224, 255, 0.5)',
           'rgb(244, 245, 245, 0.5)',
         ],
         borderWidth: 0.8,
         borderColor: [
-          'rgb(255, 99, 132, 1)',
-          'rgb(255, 159, 64, 1)',
-          'rgb(255, 205, 86, 1)',
-          'rgb(75, 192, 192, 1)',
-          'rgb(54, 162, 235, 1)',
+           'rgb(243,179,255)',
+          'rgb(12,79,0)',
+          'rgb(255,123,0)',
+          'rgb(0,107,255)',
+          'rgb(255,170,0)',
           'rgb(153, 102, 255, 1)',
           'rgb(201, 203, 207, 1)',
         ],
@@ -439,21 +515,21 @@ export default {
         label: 'Strike Rate',
         data: catchesTakenData.map(t => t.catches_taken),
         backgroundColor: [
-          'rgb(219, 242, 242, 0.5)',
-          'rgb(215, 236, 251, 0.5)',
-          'rgb(235, 224, 255, 0.5)',
-          'rgb(255, 224, 230, 0.5)',
-          'rgb(255, 226, 217, 0.5)',
+          'rgb(218,20,255)',
+          'rgb(57,255,20)',
+          'rgb(255,255,0)',
+          'rgb(0,255,255)',
+          'rgb(255,128,0)',
           'rgb(255, 245, 221, 0.5)',
           'rgb(244, 245, 245, 0.5)',
         ],
         borderWidth: 0.8,
         borderColor: [
-          'rgb(75, 192, 192, 1)',
-          'rgb(54, 162, 235, 1)',
-          'rgb(153, 102, 255, 1)',
-          'rgb(255, 99, 132, 1)',
-          'rgb(255, 159, 64, 1)',
+           'rgb(243,179,255)',
+          'rgb(12,79,0)',
+          'rgb(255,123,0)',
+          'rgb(0,107,255)',
+          'rgb(255,170,0)',
           'rgb(255, 205, 86, 1)',
           'rgb(201, 203, 207, 1)',
         ],
@@ -476,5 +552,10 @@ export default {
 <style>
 .center {
   text-align: center;
+}
+.tags {
+  margin-bottom: 100px;
+  font-size: 0px;
+  color: rgb(19, 20, 36)
 }
 </style>

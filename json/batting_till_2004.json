@@ -2,17 +2,18 @@
    
     "year":"till 2004",
    "info": {
-"batting_score" : 9879,
+"batting_score" : 56,
 "total_no_of_fours": 1309,
 "total_no_of_sixes": 40,
 "average_sr": 50.875
+
     }
 },
 
 {
     "year": "after 2004",
     "info":{
-        "batting_score" : 6043,
+        "batting_score" : 34,
         "total_no_of_fours": 749,
         "total_no_of_sixes": 29,
         "average_sr": 54.238 

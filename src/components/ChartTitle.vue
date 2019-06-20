@@ -14,7 +14,7 @@ export default {
 
 <style scoped>
 .subtitle {
-    color: rgb(58,55,52);
+    color: rgb(168, 100, 32);
     font-size: 15px;
     font-weight: normal;
     display: block;

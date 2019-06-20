@@ -53,7 +53,6 @@ export default {
   .chart-container {
     width: 20%;
     display: inline-block;
-    box-shadow: 10px 10px 5px grey;
     
    
   }

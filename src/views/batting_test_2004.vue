@@ -1,89 +1,132 @@
 <template>
     <div class="batting_test_2004">
-
-        <div class="card center">
-          <span class="title-imp">Important factors in Test format</span>
+        <div class="card-center">
+          <span class="title-imp">Before 2004 and after 2004 Analysis</span>
           <hr>
           <br>
-          <span class="result-ps">1. <b>Conversion 50's into 100's</b> plays an important role in the
-            Test cricket format since it is equally important to score big runs
+          <span class="result-ps"> <b>The following analysis is based on the research and critical observation that due 
+            to serious injuries Sachin tendulkar did not remain as effective as he was before 2004.This Analysis in the role of batsman(as 
+            he is an aclaimed batsman)comprises of :-</b>
           </span>
-          <span class="result-ps">2. <b>Conversion 100's into 200's</b> plays an crucial role in
-            Test cricket format since a double century will give you a powerful win
+          <br>
+          
+          <span class="result-ps">1. <b>His Average score in matches</b> 
           </span>
-          <span class="result-ps">3. <b>Number of 6's & 4's</b> provide runs faster
-            compared to non-boundaries & hence are prefferable when you have to score big
+          <span class="result-ps">2. <b>Number of 6's</b> 
+          </span>
+          <span class="result-ps" >3. <b>Number of 4's</b> 
+          </span>
+          <span class="result-ps">4. <b>Average Strike Rate</b> 
           </span>
         </div>
 
-        <el-tag class="tags bottomtags">
-          <b>Consistency of Player:</b>
-          Average runs, Runs at Home VS Away matches & ICC Ranking
-        </el-tag>
+       <br>
+        <br>
+        <br>
         
 
         <div class="card">
             <Chart
-            titleText="Avg Runs Scored (Home vs Away)"
-            subTitleText="Let's see which player is durable under pressure"
+            titleText="Avg Runs Scored"
+            subTitleText="Average run is important to determine players consistency"
             chartType="bar"
             :chartData="HomeAwayScoreData.data"
             :chartOptions="HomeAwayScoreData.options"
             :parentStyle="chartContainerStyle"
             />
             <Inference
-            winner="Sir Don Bradman"
-            titleText="scoring under pressure"
+            inference="Avg run Scored"
+            titleText="A batting average represents how many runs, on average, a batsman scores before getting out."
+           
+            winner="The difference in average of Sachin before and after 2004 is around 30."
             />
             <br/>
-            <el-popover
-              placement="top-start"
-              title="Home Score"
-              width="200"
-              trigger="hover"
-              content="Score of a player when he scores in the country of his nationality">
-              <el-button slot="reference">Define Home Score</el-button>
-            </el-popover>
-            <el-popover
-              placement="top-start"
-              title="Away Score"
-              width="200"
-              trigger="hover"
-              content="Score of a player when he scores in the country in whose oppsition
-                        he's playing">
-              <el-button slot="reference">Define Away Score</el-button>
-            </el-popover>
+            
+           
         </div>
 
-        <el-tag class="tags bottomtags">
-          <b>Player Dominance:</b>
-          Conversion rate of 50s into 100s, 100s into 200s & Man of the Match Awards
-        </el-tag>
+        <br>
+        <br>
+        <br>
+       <div class="card">
+            <Chart
+            titleText="Total No. of fours"
+            subTitleText="According to the research, no. of fours determine the ease with with the player finishes off the game. "
+            chartType="bar"
+            :chartData="FoursStat.data"
+            :chartOptions="FoursStat.options"
+            :parentStyle="chartContainerStyle"
+            />
+            <Inference
+            inference="Total no. of Fours"
+            winner="The difference in total no. of fours in the two respective era is around 520."
+            titleText="The higher no. of fours decide the players ability to score run fast"
+            />
+            <br/>
+           
+        </div>
 
-        
+        <br>
+        <br>
+        <br>
 
-        <el-tag class="tags bottomtags">
-          <b>Hitting Strength:</b> Strike Rate, Number of Boundaries
-        </el-tag>
+        <div class="card">
+            <Chart
+            titleText="Total No. of sixes scored"
+            subTitleText="SInce Sixes are counted if the ball is hit outside the boundaries, therefore it also counts to the muscle power of the player. "
+            chartType="bar"
+            :chartData="SixesStat.data"
+            :chartOptions="SixesStat.options"
+            :parentStyle="chartContainerStyle"
+            />
+            <Inference
+            inference="Total no. of sixes"
+            winner="The difference between the total no. of sixes in the two respective era is 11."
+            titleText="The tactics, muscle power, pitch length, ground shape determines the no. of sixes a player can score on an average"
+            />
+            <br/>
+            
+        </div>
 
-        
+        <br>
+        <br>
+        <br>
 
+<div class="card"> 
+            <Chart
+            titleText="Average Strike rate"
+            subTitleText="It is an obvious fact that the higher strike rate of the player determines how good of a player he is and his capability to finish the match"
+            chartType="bar"
+            :chartData="SixesStat.data"
+            :chartOptions="SixesStat.options"
+            :parentStyle="chartContainerStyle"
+            />
+            <Inference
+            winner="It is fairly visible that there is difference in the average strike rate before and after 2004."
+            titleText="The difference strike rate is an importsnt factor amongst all the other factor becuase it gives the player to chase the target smoothly."
+            inference="Average Strike rate"
+            />
+            <br/>
+            
+        </div>
+<br>
+        <br>
+        <br>
     </div>
 </template>
 
 <script>
 import Chart from '@/components/Chart.vue';
 import Inference from '@/components/Inference.vue';
-import PlayerDetailsCard from '@/components/PlayerDetailsCard.vue';
 
-import batting_test_2004 from '../../json/batting_till_2004.json';
+import battingtest2004 from '../../json/batting_till_2004.json';
 
 export default {
-  name: 'batting_test_2004',
+  name: 'battingtest2004',
   components: {
     Chart,
     Inference,
-    PlayerDetailsCard,
+    
   },
   data() {
     return {
@@ -93,23 +136,130 @@ export default {
         display: 'inline-block',
       },
       
-      HomeAwayScoreData: {
        HomeAwayScoreData: {
         options: {
           responsive: true,
+           scales: {
+            xAxes: [{
+              stacked: true,
+              maxBarThickness: 70,
+              gridLines: {
+                offsetGridLines: true,
+                color: 'rgba(255, 0, 0, 1)'
+              },
+            }],
+            yAxes: [{
+              stacked: true,
+              
+              gridLines: {
+                offsetGridLines: true,
+                color: 'rgba(255, 0, 0, 1)'
+              },
+            }],
+            
+          },
         },
         data: {
           labels: [],
           datasets: [],
         },
       },
-    },
+
+      FoursStat: {
+        options: {
+          responsive: true,
+           scales: {
+            xAxes: [{
+              stacked: true,
+              maxBarThickness: 70,
+              gridLines: {
+                offsetGridLines: true,
+                color: 'rgba(255, 0, 0, 1)'
+              },
+            }],
+            yAxes: [{
+              stacked: true,
+              
+              gridLines: {
+                offsetGridLines: true,
+                color: 'rgba(255, 0, 0, 1)'
+              },
+            }],
+            
+          },
+        },
+        data: {
+          labels: [],
+          datasets: [],
+        },
+      },
+
+      SixesStat: {
+        options: {
+          responsive: true,
+           scales: {
+            xAxes: [{
+              stacked: true,
+              maxBarThickness: 70,
+              gridLines: {
+                offsetGridLines: true,
+                color: 'rgba(255, 0, 0, 1)'
+              },
+            }],
+            yAxes: [{
+              stacked: true,
+              
+              gridLines: {
+                offsetGridLines: true,
+                color: 'rgba(255, 0, 0, 1)'
+              },
+            }],
+            
+          },
+        },
+        data: {
+          labels: [],
+          datasets: [],
+        },
+      },
+    
+
+    AverageSr: {
+        options: {
+          responsive: true,
+           scales: {
+            xAxes: [{
+              stacked: true,
+              maxBarThickness: 70,
+              gridLines: {
+                offsetGridLines: true,
+                color: 'rgba(255, 0, 0, 1)'
+              },
+            }],
+            yAxes: [{
+              stacked: true,
+              
+              gridLines: {
+                offsetGridLines: true,
+                color: 'rgba(255, 0, 0, 1)'
+              },
+            }],
+            
+          },
+        },
+        data: {
+          labels: [],
+          datasets: [],
+        },
+      },
+    
+    
     };
   },
      
  mounted(){
     const homeAwayScoreData = [];
-    Object.values(batting_test_2004).forEach((player) => {
+    Object.values(battingtest2004).forEach((player) => {
       homeAwayScoreData.push({
         name: player.year,
         awayAvg: player.info.batting_score,
@@ -119,24 +269,24 @@ export default {
       labels: homeAwayScoreData.map(t => t.name),
       datasets: [
         {
-          label: 'Away',
+          label: 'Avg run scored',
           data: homeAwayScoreData.map(t => t.awayAvg),
           backgroundColor: [
-          'rgb(255, 224, 230, 0.5)',
-          'rgb(255, 226, 217, 0.5)',
-          'rgb(255, 245, 221, 0.5)',
-          'rgb(219, 242, 242, 0.5)',
-          'rgb(215, 236, 251, 0.5)',
+          'rgb(218,20,255)',
+          'rgb(57,255,20)',
+          'rgb(255,255,0)',
+          'rgb(0,255,255)',
+          'rgb(255,128,0)',
           'rgb(235, 224, 255, 0.5)',
           'rgb(244, 245, 245, 0.5)',
         ],
           borderWidth: 0.5,
           borderColor: [
-          'rgb(255, 99, 132, 1)',
-          'rgb(255, 159, 64, 1)',
-          'rgb(255, 205, 86, 1)',
-          'rgb(75, 192, 192, 1)',
-          'rgb(54, 162, 235, 1)',
+          'rgb(243,179,255)',
+          'rgb(12,79,0)',
+          'rgb(255,123,0)',
+          'rgb(0,107,255)',
+          'rgb(255,170,0)',
           'rgb(153, 102, 255, 1)',
           'rgb(201, 203, 207, 1)',
         ],
@@ -154,15 +304,161 @@ export default {
         
         }],
     };
- },
-};
+    const foursStat = [];
+    Object.values(battingtest2004).forEach((player) => {
+      foursStat.push({
+        year: player.year,
+        awayfours: player.info.total_no_of_fours
+       });
+    });
+    this.FoursStat.data = {
+      labels: foursStat.map(t => t.year),
+      datasets: [
+        {
+          label: 'Total no. of fours',
+          data: foursStat.map(t => t.awayfours),
+          backgroundColor: [
+          'rgb(218,20,255)',
+          'rgb(57,255,20)',
+          'rgb(255,255,0)',
+          'rgb(0,255,255)',
+          'rgb(255,128,0)',
+          'rgb(235, 224, 255, 0.5)',
+          'rgb(244, 245, 245, 0.5)',
+        ],
+          borderWidth: 0.5,
+          borderColor: [
+          'rgb(243,179,255)',
+          'rgb(12,79,0)',
+          'rgb(255,123,0)',
+          'rgb(0,107,255)',
+          'rgb(255,170,0)',
+          'rgb(153, 102, 255, 1)',
+          'rgb(201, 203, 207, 1)',
+        ],
+          hoverBorderWidth: 1,
+          hoverBorderColor: [
+          'rgb(255, 99, 132, 1)',
+          'rgb(255, 159, 64, 1)',
+          'rgb(255, 205, 86, 1)',
+          'rgb(75, 192, 192, 1)',
+          'rgb(54, 162, 235, 1)',
+          'rgb(153, 102, 255, 1)',
+          'rgb(201, 203, 207, 1)',
+        ],
+       
+        
+        }],
+    };
+
+
+    const sixesStat = [];
+    Object.values(battingtest2004).forEach((player) => {
+      sixesStat.push({
+        year: player.year,
+        awaysixes: player.info.total_no_of_sixes
+       });
+    });
+    this.SixesStat.data = {
+      labels: sixesStat.map(t => t.year),
+      datasets: [
+        {
+          label: 'Total no. of sixes',
+          data: sixesStat.map(t => t.awaysixes),
+          backgroundColor: [
+          'rgb(218,20,255)',
+          'rgb(57,255,20)',
+          'rgb(255,255,0)',
+          'rgb(0,255,255)',
+          'rgb(255,128,0)',
+          'rgb(235, 224, 255, 0.5)',
+          'rgb(244, 245, 245, 0.5)',
+        ],
+          borderWidth: 0.5,
+          borderColor: [
+          'rgb(243,179,255)',
+          'rgb(12,79,0)',
+          'rgb(255,123,0)',
+          'rgb(0,107,255)',
+          'rgb(255,170,0)',
+          'rgb(153, 102, 255, 1)',
+          'rgb(201, 203, 207, 1)',
+        ],
+          hoverBorderWidth: 1,
+          hoverBorderColor: [
+          'rgb(255, 99, 132, 1)',
+          'rgb(255, 159, 64, 1)',
+          'rgb(255, 205, 86, 1)',
+          'rgb(75, 192, 192, 1)',
+          'rgb(54, 162, 235, 1)',
+          'rgb(153, 102, 255, 1)',
+          'rgb(201, 203, 207, 1)',
+        ],
+       
+        
+        }],
+    };
+
+
+    const averageSr = [];
+    Object.values(battingtest2004).forEach((player) => {
+      averageSr.push({
+        name: player.year,
+        averagesr: player.info.average_sr,
+       });
+    });
+    this.AverageSr = {
+      labels: averageSr.map(t => t.name),
+      datasets: [
+        {
+          label: 'Average Strike Rate',
+          data: averageSr.map(t => t.averagesr),
+          backgroundColor: [
+          'rgb(218,20,255)',
+          'rgb(57,255,20)',
+          'rgb(255,255,0)',
+          'rgb(0,255,255)',
+          'rgb(255,128,0)',
+          'rgb(235, 224, 255, 0.5)',
+          'rgb(244, 245, 245, 0.5)',
+        ],
+          borderWidth: 0.5,
+          borderColor: [
+          'rgb(243,179,255)',
+          'rgb(12,79,0)',
+          'rgb(255,123,0)',
+          'rgb(0,107,255)',
+          'rgb(255,170,0)',
+          'rgb(153, 102, 255, 1)',
+          'rgb(201, 203, 207, 1)',
+        ],
+          hoverBorderWidth: 1,
+          hoverBorderColor: [
+          'rgb(255, 99, 132, 1)',
+          'rgb(255, 159, 64, 1)',
+          'rgb(255, 205, 86, 1)',
+          'rgb(75, 192, 192, 1)',
+          'rgb(54, 162, 235, 1)',
+          'rgb(153, 102, 255, 1)',
+          'rgb(201, 203, 207, 1)',
+        ],
+       
+        
+        }],
+    };
+
+
+    
+   },
+ };
 
 </script>
 
 <style scoped>
 .tags {
   margin-bottom: 20px;
-  font-size: 16px;
+  font-size: 0px;
+  background-color: rgb(19, 20, 36)
 }
 .bottomtags {
   margin-top: 30px;

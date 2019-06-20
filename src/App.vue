@@ -1,11 +1,9 @@
 <template>
   <div id="app">
     <el-container>
-      <el-aside width="225px">
-        <div class="logo-container"> Data Visualization </div>
-        <Sidebar />
-      </el-aside>
-      <el-container>
+      <el-aside width="2000px" height="20px">
+         <Sidebar />
+         <el-container>
         <el-header>
           <Header />
         </el-header>
@@ -15,6 +13,8 @@
           </transition>
         </el-main>
       </el-container>
+      </el-aside>
+      
     </el-container>
   </div>
 </template>
@@ -37,18 +37,19 @@ export default {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: rgb(58,55,52);
+  color: rgb(19, 20, 36);
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 20px;
   margin: auto;
 }
 
 .el-aside {
-  background: #434A50;
+  background:rgb(19, 20, 36);
   color: white;
-  min-height: 100vh;
+  
+
 }
 
 .logo-container {
@@ -58,65 +59,73 @@ export default {
 }
 
 .el-main {
-  background: #EEF1F4;
+  background:rgb(19, 20, 36);
 }
 
 .card {
-    border-radius: 4px;
-    border: 1px solid #ebeef5;
-    background-color: #fff;
+    border-radius: 0px;
+    border: 1px solid rgb(255, 255, 255);
+    background-color:rgb(27, 33, 54);
     overflow: hidden;
-    color: rgb(58,55,52);;
+    color: rgb(255, 255, 255);;
     transition: .3s;
-    padding: 20px;
-    width: 96%;
+   
+  margin-left: 300px;
+  box-align: center;
+
+    width: 1000px;
+  height: 100x;
 }
 
 .card:hover {
     transition: .5s;
-    box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
+    box-shadow: 0 2px 12px 0 rgba(228, 13, 13, 0.1);
+    border-collapse: separate;
+    border-spacing: 100px;
 }
 
 .result {
-    color: rgb(58,55,52);
-    font-size: 25px;
+    color: rgb(255, 255, 255);
+    font-size: 15px;
     font-weight: bold;
     display: block;
-    margin-top: 10px;
+    margin-top: 0px;
     margin-block-start: 0.42em;
     margin-block-end: 0.42em;
-    margin-inline-start: 0px;
+    margin-inline-start: 12px;
     margin-inline-end: 0px;
 }
 
 .result-ps {
-    color: rgb(58,55,52);
+    color: rgb(255, 255, 255);
     font-size: 15px;
     font-weight: normal;
     display: block;
     margin-top: 10px;
     margin-block-start: 0.42em;
     margin-block-end: 0.42em;
-    margin-inline-start: 0px;
+    margin-inline-start: 12px;
     margin-inline-end: 0px;
     max-width: 100%;
+    text-align: left;
+    margin-left: 12px;
 }
 
 .title-imp {
-  color: rgb(58,55,52);
+  color: rgb(250, 249, 249);
     font-size: 25px;
     font-weight: bold;
     display: block;
     margin-top: 10px;
     margin-block-start: 0.42em;
     margin-block-end: 0.42em;
-    margin-inline-start: 0px;
+    margin-inline-start: 12px;
     margin-inline-end: 0px;
     max-width: 100%;
 }
 
 h1 {
-    color: rgb(58,55,52);
+    color: rgb(245, 239, 234);
     font-size: 25px;
     display: block;
     margin-block-start: 0.67em;
@@ -124,5 +133,18 @@ h1 {
     margin-inline-start: 0px;
     margin-inline-end: 0px;
     font-weight: bold;
+}
+
+.card-center{
+width: 1680px;
+height: 250px;
+border: 1px solid rgb(255, 255, 255);
+margin-right: 12px;
+}
+.card-bottom{
+  width: 1680px;
+height: 100px;
+border: 1px solid rgb(255, 255, 255);
+margin-right: 12px
 }
 </style>

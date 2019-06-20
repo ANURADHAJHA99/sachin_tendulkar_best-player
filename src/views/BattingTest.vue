@@ -1,25 +1,22 @@
 <template>
     <div class="batting-test">
 
-        <div class="card center">
-          <span class="title-imp">Important factors in Test format</span>
+        <div class="card-center">
+          <span class="title-imp">Factors determining the performance of players in Test Match</span>
           <hr>
           <br>
-          <span class="result-ps">1. <b>Conversion 50's into 100's</b> plays an important role in the
-            Test cricket format since it is equally important to score big runs
+          <span class="result-ps">1. Conversion of 50's into 100's plays an important role in the
+         game as it gives big boost to the score.
           </span>
-          <span class="result-ps">2. <b>Conversion 100's into 200's</b> plays an crucial role in
-            Test cricket format since a double century will give you a powerful win
+          <span class="result-ps">2. Conversion 100's into 200's plays an crucial role in
+            Test cricket format shows the strength of the player, as he continues to score big even after playing for long.
           </span>
-          <span class="result-ps">3. <b>Number of 6's & 4's</b> provide runs faster
-            compared to non-boundaries & hence are prefferable when you have to score big
-          </span>
-        </div>
-
-        <el-tag class="tags bottomtags">
-          <b>Consistency of Player:</b>
-          Average runs, Runs at Home VS Away matches & ICC Ranking
-        </el-tag>
+         </div>
+        <br>
+        <br>
+        <br>
+        
+        
         <div class="card">
             <PlayerDetailsCard :person="focusedPlayerBattingTest" />
             <Chart
@@ -31,104 +28,85 @@
             :parentStyle="chartContainerStyle"
             />
             <Inference
-            winner="Sir Don Bradman"
-            titleText="average runs scored"
+            inference="Average Run"
+            titleText="Batting Average: Runs divided by (number of times out) = Runs divided by (Innings - Not Outs)."
+            winner="Sir Don Bradman has the highest average amongst all the respective players."
             />
         </div>
+        <br
+        <br>
+        <br>
+        
 
         <div class="card">
             <Chart
-            titleText="Avg Runs Scored (Home vs Away)"
-            subTitleText="Let's see which player is durable under pressure"
+            titleText="Avg Runs Scored (HomeGround vs Abroad)"
+            subTitleText="According to a research, the players playing environment such as home ground or abroad ground plays a very important role, and the key 
+            factor of discussion is Motivation"
             chartType="horizontalBar"
             :chartData="HomeAwayScoreData.data"
             :chartOptions="HomeAwayScoreData.options"
             :parentStyle="chartContainerStyle"
             />
             <Inference
-            winner="Sir Don Bradman"
-            titleText="scoring under pressure"
-            />
-            <br/>
-            <el-popover
-              placement="top-start"
-              title="Home Score"
-              width="200"
-              trigger="hover"
-              content="Score of a player when he scores in the country of his nationality">
-              <el-button slot="reference">Define Home Score</el-button>
-            </el-popover>
-            <el-popover
-              placement="top-start"
-              title="Away Score"
-              width="200"
-              trigger="hover"
-              content="Score of a player when he scores in the country in whose oppsition
-                        he's playing">
-              <el-button slot="reference">Define Away Score</el-button>
-            </el-popover>
+            winner="Sir Don Bradman is the winner in the following category."
+            inference="Scoring under pressure"
+            titleText="Motivation plays a key role in the performance of a player, and it is gained by audience watching the game especially the ground spectators 
+            who are rooting and cheering for their players.Thus a player even with less cheering, if is able to play good, shows anything hardly matters to him on a personal level."
+            />.
+           <br>
+        <br>
+        <br>
+        
         </div>
 
-        <el-tag class="tags bottomtags">
-          <b>Player Dominance:</b>
-          Conversion rate of 50s into 100s, 100s into 200s & Man of the Match Awards
-        </el-tag>
-
+<br>
+        <br>
+        <br>
+        
+        
         <div class="card">
             <Chart
             titleText="Conversion of 50s to 100s"
-            subTitleText="Let's find ability of a player to play big knocks and provide the
-                          team with the winning runs"
+            subTitleText="THe more easily a player scores 100's and 50's , the hardest the target becomes for the opposite team to achieve. "
             chartType="horizontalBar"
             :chartData="ConversionToCenturyData.data"
             :chartOptions="ConversionToCenturyData.options"
             :parentStyle="chartContainerStyle"
             />
             <Inference
-            inference="It is clearly evident that Sachin Tendulkar is the player who once settled,
-                       goes for the big runs. So it is advisable to restrict him before 50 otherwise
-                       he is more likely to convert that 50 into 100."
-            winner="Sachin Tendulkar"
-            titleText="scoring big runs"
+            inference="The essence of 100's and 50's"
+            winner="Sachin Tendulkar has the fastest rate among all the players."
+            titleText="A half-century and a full-century is very important milestone in a match for a player."
             />
         </div>
+       <br>
+        <br>
+        <br>
+        
 
         <div class="card">
             <Chart
             titleText="Conversion 100s to 200s"
-            subTitleText="Let's see who can score a double century"
+            subTitleText="If a player is able to retain scoring at a fast rate such that he scores a double century without getting tired, 
+            it potrays the muscle strength the player has."
             chartType="horizontalBar"
             :chartData="ConversionToDoubleCenturyData.data"
             :chartOptions="ConversionToDoubleCenturyData.options"
             :parentStyle="chartContainerStyle"
             />
             <Inference
-            winner="Sachin Tendulkar"
-            titleText="scoring big runs"
+            winner="Sachin Tendulkar has the rate among all the players."
+            titleText="A conversion rate where the player transforms the century to double century is very rare and important."
+            inference="The importance of double century"
             />
         </div>
+       <br>
+        <br>
+        <br>
+        
 
-        <div class="card">
-            <Chart
-            titleText="Man of the Match Awards"
-            subTitleText="Most number of Man of the Match Awards determine your
-                          winning contribution"
-            chartType="horizontalBar"
-            :chartData="MomData.data"
-            :chartOptions="MomData.options"
-            :parentStyle="chartContainerStyle"
-            />
-            <Inference
-            winner="Sachin Tendulkar"
-            titleText="being winning contributor maximum times"
-            />
-        </div>
-
-        <el-tag class="tags bottomtags">
-          <b>Hitting Strength:</b> Strike Rate, Number of Boundaries
-        </el-tag>
-
-        <div class="card">
+      <div class="card">
             <Chart
             titleText="Strike Rate"
             subTitleText="Scoring runs faster always give an edge, whatever innings maybe"
@@ -138,24 +116,21 @@
             :parentStyle="chartContainerStyle"
             />
             <Inference
-            winner="Sir Viv Richards"
-            titleText="having high strike rate"
+            winner="Sir Viv Richards has the highest Strike rate amongst all the players."
+            titleText=" Batting strike rate is a measure of how frequently a batsman achieves the primary goal of batting, namely scoring runs."
+            inference="Strike Rate"
             />
             <br/>
-            <el-popover
-              placement="top-start"
-              title="Strike Rate"
-              width="200"
-              trigger="hover"
-              content="Batting strike rate is a measure of how frequently a batsman achieves the
-                       primary goal of batting, namely scoring runs">
-              <el-button slot="reference">Define Strike rate</el-button>
-            </el-popover>
+            
         </div>
+        <br>
+        <br>
+        <br>
+        
 
         <div class="card">
             <Chart
-            titleText="Number of 4's & 6's"
+            titleText="Ratio of 4's to 6's"
             subTitleText="A player who hits more boundaries will score runs faster and probably
                           much more than others"
             chartType="horizontalBar"
@@ -164,37 +139,41 @@
             :parentStyle="chartContainerStyle"
             />
             <Inference
-            winner="Sachin Tendulkar"
-            titleText="hitting most boundaries"
+            winner="Sachin Tendulkar has the highest number of fours and sixes."
+            titleText="The high no. of fours and sixes determine easy target chase or target plan for the oppposing team, thus it is very important factor."
+            inference="Four's and Sixes's"
             />
         </div>
+       <br>
+        <br>
+        <br>
+        
 
         <div class="card">
             <Chart
-            titleText="oifokzodpodpdlf"
-            subTitleText="Bowling "
+            titleText="Performance Contribution"
+            subTitleText="The chart represents no. of wins Sachin and following players achieved while acting as the team Captain "
             chartType="horizontalBar"
             :chartData="WinPerformance.data"
             :chartOptions="WinPerformance.options"
             :parentStyle="chartContainerStyle"
             />
             <Inference
-            winner="Allan Robert Bonder"
-            titleText="bowling maiden overs maximum times"
+            winner="Sir Don Bradman has the highest no. of win as a captain"
+            titleText="Being a good player does not necessarily mean that a player is a good captain too.Thus Captaincy can be whole lot challenging"
+            inference="Performance Measure"
             />
             <br>
             
         </div>
-
-        <div class="card center">
-          <h1>The Test verdict - Batting</h1>
-          <span class="result"> Sachin Tendulkar Wins !! </span>
-          <span class="result-ps">
-            Maximum number of wins in individual components is by Sachin Tendulkar.
-            <br>
-            Also, he's the one to win in all important factors of
-            Test cricket batting.
-          </span>
+        <br>
+        <br>
+        <br>
+        
+<div class="card-bottom">
+          <h1>  Elemental Conclusion - Batting Test</h1>
+          <span class="result"> Sachin Tendulkar Won most of the category </span>
+          
         </div>
 
     </div>
@@ -220,9 +199,11 @@ export default {
         margin: '10px',
         width: '45vw',
         display: 'inline-block',
+        scaleFontColor: 'white',
       },
       AvgOverInngsTestData: {
         options: {
+           scaleFontColor: 'white',
           responsive: true,
           scales: {
             xAxes: [{
@@ -233,8 +214,17 @@ export default {
               },
               gridLines: {
                 offsetGridLines: true,
+                color: 'rgba(255, 0, 0, 1)'
               },
               barThickness: 50,
+            }],
+            yAxes: [{
+              stacked: true,
+              
+              gridLines: {
+                offsetGridLines: true,
+                color: 'rgba(255, 0, 0, 1)'
+              },
             }],
           },
           onClick: (evt, item) => {
@@ -251,6 +241,24 @@ export default {
       HomeAwayScoreData: {
         options: {
           responsive: true,
+          scales: {
+            xAxes: [{
+              stacked: true,
+              gridLines: {
+                offsetGridLines: true,
+                color: 'rgba(255, 0, 0, 1)'
+              },
+            }],
+            yAxes: [{
+              stacked: true,
+              
+              gridLines: {
+                offsetGridLines: true,
+                color: 'rgba(255, 0, 0, 1)'
+              },
+            }],
+            
+          },
         },
         data: {
           labels: [],
@@ -263,10 +271,20 @@ export default {
           scales: {
             xAxes: [{
               stacked: true,
+              gridLines: {
+                offsetGridLines: true,
+                color: 'rgba(255, 0, 0, 1)'
+              },
             }],
             yAxes: [{
               stacked: true,
+              
+              gridLines: {
+                offsetGridLines: true,
+                color: 'rgba(255, 0, 0, 1)'
+              },
             }],
+            
           },
         },
         data: {
@@ -280,9 +298,19 @@ export default {
           scales: {
             xAxes: [{
               stacked: true,
+              color: 'rgba(255, 0, 0, 1)',
+              gridLines: {
+                offsetGridLines: true,
+                color: 'rgba(255, 0, 0, 1)'
+              },
             }],
             yAxes: [{
               stacked: true,
+              color: 'rgba(255, 0, 0, 1)',
+               gridLines: {
+                offsetGridLines: true,
+                color: 'rgba(255, 0, 0, 1)'
+              },
             }],
           },
         },
@@ -294,6 +322,24 @@ export default {
       StrikeRateData: {
         options: {
           responsive: true,
+          scales: {
+            xAxes: [{
+              stacked: true,
+              color: 'rgba(255, 0, 0, 1)',
+              gridLines: {
+                offsetGridLines: true,
+                color: 'rgba(255, 0, 0, 1)'
+              },
+            }],
+            yAxes: [{
+              stacked: true,
+              color: 'rgba(255, 0, 0, 1)',
+               gridLines: {
+                offsetGridLines: true,
+                color: 'rgba(255, 0, 0, 1)'
+              },
+            }],
+          },
          
           
         },
@@ -306,14 +352,24 @@ export default {
       BoundariesData: {
         options: {
           responsive: true,
-        //   scales: {
-        //     xAxes: [{
-        //         stacked: true
-        //     }],
-        //     yAxes: [{
-        //         stacked: true
-        //     }]
-        //  }
+         scales: {
+           xAxes: [{
+                 stacked: true,
+                 color: 'rgba(255, 0, 0, 1)',
+                 gridLines: {
+                offsetGridLines: true,
+                color: 'rgba(255, 0, 0, 1)'
+              },
+             }],
+             yAxes: [{
+                 stacked: true,
+                 color: 'rgba(255, 0, 0, 1)',
+                  gridLines: {
+                offsetGridLines: true,
+                color: 'rgba(255, 0, 0, 1)'
+              },
+             }]
+          }
         },
       
         data: {
@@ -325,32 +381,48 @@ export default {
         options: {
           responsive: true,
           scales: {
-            xAxes: [{
-              ticks: {
-                beginAtZero: true,
-                maxRotation: 0,
-                minRotation: 0,
-              },
-              gridLines: {
+           xAxes: [{
+                 stacked: true,
+                 color: 'rgba(255, 0, 0, 1)',
+                 gridLines: {
                 offsetGridLines: true,
+                color: 'rgba(255, 0, 0, 1)'
               },
-              barThickness: 50,
-            }],
-          },
+             }],
+             yAxes: [{
+                 stacked: true,
+                 color: 'rgba(255, 0, 0, 1)',
+                  gridLines: {
+                offsetGridLines: true,
+                color: 'rgba(255, 0, 0, 1)'
+              },
+             }]
+          }
         },
         data: {
           labels: [],
           datasets: [],
         },
-        WinPerformance : {
+      },
+
+      WinPerformance : {
         options: {
           responsive: true,
           scales: {
             xAxes: [{
               stacked: true,
+              gridLines: {
+                offsetGridLines: true,
+                color: 'rgba(255, 0, 0, 1)'
+              },
+            
             }],
             yAxes: [{
               stacked: true,
+              gridLines: {
+                offsetGridLines: true,
+                color: 'rgba(255, 0, 0, 1)'
+              },
             }],
           },
         },
@@ -359,7 +431,7 @@ export default {
           datasets: [],
         },
       },
-      },
+      
      focusedPlayerBattingTest: null,
     };
     
@@ -379,21 +451,21 @@ export default {
         label: 'Average Runs of all Matches',
         data: avgOverInngsTestData.map(t => t.avg),
         backgroundColor: [
-          'rgb(255, 224, 230, 0.5)',
-          'rgb(255, 226, 217, 0.5)',
-          'rgb(255, 245, 221, 0.5)',
-          'rgb(219, 242, 242, 0.5)',
-          'rgb(215, 236, 251, 0.5)',
+          'rgb(218,20,255)',
+          'rgb(57,255,20)',
+          'rgb(255,255,0)',
+          'rgb(0,255,255)',
+          'rgb(255,128,0)',
           'rgb(235, 224, 255, 0.5)',
           'rgb(244, 245, 245, 0.5)',
         ],
-        borderWidth: 0.8,
+        borderWidth: 2,
         borderColor: [
-          'rgb(255, 99, 132, 1)',
-          'rgb(255, 159, 64, 1)',
-          'rgb(255, 205, 86, 1)',
-          'rgb(75, 192, 192, 1)',
-          'rgb(54, 162, 235, 1)',
+          'rgb(243,179,255)',
+          'rgb(12,79,0)',
+          'rgb(255,123,0)',
+          'rgb(0,107,255)',
+          'rgb(255,170,0)',
           'rgb(153, 102, 255, 1)',
           'rgb(201, 203, 207, 1)',
         ],
@@ -426,18 +498,18 @@ export default {
         {
           label: 'Away',
           data: homeAwayScoreData.map(t => t.awayAvg),
-          backgroundColor: 'rgb(255, 224, 34, 0.5)',
-          borderWidth: 0.5,
-          borderColor: 'rgb(255, 99, 132, 1)',
+          backgroundColor: 'rgb(0,213,255)',
+          borderWidth: 2,
+          borderColor: 'rgb(0,100,120)',
           hoverBorderWidth: 1,
           hoverBorderColor: 'rgb(255, 99, 132, 1)',
         },
         {
           label: 'Home',
           data: homeAwayScoreData.map(t => t.homeAvg),
-          backgroundColor: 'rgb(219, 242, 242, 0.5)',
-          borderWidth: 0.5,
-          borderColor: 'rgb(75, 192, 192, 1)',
+          backgroundColor: 'rgb(255,105,105)',
+          borderWidth: 2,
+          borderColor: 'rgb(255,105,105)',
           hoverBorderWidth: 1,
           hoverBorderColor: 'rgb(75, 192, 192, 1)',
         }],
@@ -457,18 +529,18 @@ export default {
         {
           label: 'Half Century',
           data: conversionToCenturyData.map(t => t.fifties),
-          backgroundColor: 'rgb(255, 226, 217, 0.5)',
-          borderWidth: 0.5,
-          borderColor: 'rgb(255, 159, 64, 1)',
+          backgroundColor: 'rgb(0,213,255)',
+          borderWidth: 2,
+          borderColor: 'rgb(0,100,120)',
           hoverBorderWidth: 1,
           hoverBorderColor: 'rgb(255, 159, 64, 1)',
         },
         {
           label: 'Century',
           data: conversionToCenturyData.map(t => t.hundreds),
-          backgroundColor: 'rgb(215, 236, 251, 0.5)',
-          borderWidth: 0.5,
-          borderColor: 'rgb(54, 162, 235, 1)',
+          backgroundColor: 'rgb(255,105,105)',
+          borderWidth: 2,
+          borderColor: 'rgb(255,105,105)',
           hoverBorderWidth: 1,
           hoverBorderColor: 'rgb(54, 162, 235, 1)',
         },
@@ -489,18 +561,18 @@ export default {
         {
           label: 'Century',
           data: conversionToDoubleCenturyData.map(t => t.hundreds),
-          backgroundColor: 'rgb(255, 224, 230, 0.5)',
-          borderWidth: 0.5,
-          borderColor: 'rgb(255, 99, 132, 1)',
+          backgroundColor: 'rgb(0,213,255)',
+          borderWidth: 2,
+          borderColor: 'rgb(0,100,120)',
           hoverBorderWidth: 1,
           hoverBorderColor: 'rgb(255, 99, 132, 1)',
         },
         {
           label: 'Double Century',
           data: conversionToDoubleCenturyData.map(t => t.doublecentury),
-          backgroundColor: 'rgb(219, 242, 242, 0.5)',
-          borderWidth: 0.5,
-          borderColor: 'rgb(75, 192, 192, 1)',
+          backgroundColor: 'rgb(255,105,105)',
+          borderWidth: 2,
+          borderColor: 'rgb(255,105,105)',
           hoverBorderWidth: 1,
           hoverBorderColor: 'rgb(75, 192, 192, 1)',
         },
@@ -522,21 +594,21 @@ export default {
         
         data: strikeRateData.map(t => t.strike_rate),
         backgroundColor: [
-          'rgb(255, 224, 230, 0.5)',
-          'rgb(255, 226, 217, 0.5)',
-          'rgb(255, 245, 221, 0.5)',
-          'rgb(219, 242, 242, 0.5)',
-          'rgb(215, 236, 251, 0.5)',
+          'rgb(218,20,255)',
+          'rgb(57,255,20)',
+          'rgb(255,255,0)',
+          'rgb(0,255,255)',
+          'rgb(255,128,0)',
           'rgb(235, 224, 255, 0.5)',
           'rgb(244, 245, 245, 0.5)',
         ],
-        borderWidth: 0.8,
+        borderWidth: 2,
         borderColor: [
-          'rgb(255, 99, 132, 1)',
-          'rgb(255, 159, 64, 1)',
-          'rgb(255, 205, 86, 1)',
-          'rgb(75, 192, 192, 1)',
-          'rgb(54, 162, 235, 1)',
+          'rgb(243,179,255)',
+          'rgb(12,79,0)',
+          'rgb(255,123,0)',
+          'rgb(0,107,255)',
+          'rgb(255,170,0)',
           'rgb(153, 102, 255, 1)',
           'rgb(201, 203, 207, 1)',
         ],
@@ -567,18 +639,18 @@ export default {
         {
           label: 'Fours',
           data: boundariesData.map(t => t.fours),
-          backgroundColor: 'rgb(255, 224, 230, 0.5)',
-          borderWidth: 0.5,
-          borderColor: 'rgb(255, 99, 132, 1)',
+          backgroundColor: 'rgb(0,213,255)',
+          borderWidth: 2,
+          borderColor: 'rgb(0,100,120)',
           hoverBorderWidth: 1,
           hoverBorderColor: 'rgb(255, 99, 132, 1)',
         },
         {
           label: 'Sixes',
           data: boundariesData.map(t => t.sixes),
-          backgroundColor: 'rgb(219, 242, 242, 0.5)',
-          borderWidth: 0.5,
-          borderColor: 'rgb(75, 192, 192, 1)',
+          backgroundColor:'rgb(255,105,105)',
+          borderWidth: 2,
+          borderColor: 'rgb(255,105,105)',
           hoverBorderWidth: 1,
           hoverBorderColor: 'rgb(75, 192, 192, 1)',
         },
@@ -599,25 +671,25 @@ export default {
         label: 'Man of Match',
         data: momData.map(t => t.mom),
         backgroundColor: [
-          'rgb(255, 224, 230, 0.5)',
-          'rgb(255, 226, 217, 0.5)',
-          'rgb(255, 245, 221, 0.5)',
-          'rgb(219, 242, 242, 0.5)',
-          'rgb(215, 236, 251, 0.5)',
+         'rgb(218,20,255)',
+          'rgb(57,255,20)',
+          'rgb(255,255,0)',
+          'rgb(0,255,255)',
+          'rgb(255,128,0)',
           'rgb(235, 224, 255, 0.5)',
           'rgb(244, 245, 245, 0.5)',
         ],
         borderWidth: 0.8,
         borderColor: [
-          'rgb(255, 99, 132, 1)',
-          'rgb(255, 159, 64, 1)',
-          'rgb(255, 205, 86, 1)',
-          'rgb(75, 192, 192, 1)',
-          'rgb(54, 162, 235, 1)',
+          'rgb(243,179,255)',
+          'rgb(12,79,0)',
+          'rgb(255,123,0)',
+          'rgb(0,107,255)',
+          'rgb(255,170,0)',
           'rgb(153, 102, 255, 1)',
           'rgb(201, 203, 207, 1)',
         ],
-        hoverBorderWidth: 1.2,
+        hoverBorderWidth: 0,
         hoverBorderColor: [
           'rgb(255, 99, 132, 1)',
           'rgb(255, 159, 64, 1)',
@@ -644,21 +716,21 @@ export default {
           label: 'performance winning factor',
           data: winPerformance.map(t => t.percen_win),
           backgroundColor: [
-          'rgb(255, 224, 230, 0.5)',
-          'rgb(255, 226, 217, 0.5)',
-          'rgb(255, 245, 221, 0.5)',
-          'rgb(219, 242, 242, 0.5)',
-          'rgb(215, 236, 251, 0.5)',
+         'rgb(218,20,255)',
+          'rgb(57,255,20)',
+          'rgb(255,255,0)',
+          'rgb(0,255,255)',
+          'rgb(255,128,0)',
           'rgb(235, 224, 255, 0.5)',
           'rgb(244, 245, 245, 0.5)',
         ],
           borderWidth: 0.5,
           borderColor: [
-          'rgb(255, 99, 132, 1)',
-          'rgb(255, 159, 64, 1)',
-          'rgb(255, 205, 86, 1)',
-          'rgb(75, 192, 192, 1)',
-          'rgb(54, 162, 235, 1)',
+          'rgb(243,179,255)',
+          'rgb(12,79,0)',
+          'rgb(255,123,0)',
+          'rgb(0,107,255)',
+          'rgb(255,170,0)',
           'rgb(153, 102, 255, 1)',
           'rgb(201, 203, 207, 1)',
         ],
@@ -684,11 +756,17 @@ export default {
 <style scoped>
 .tags {
   margin-bottom: 20px;
-  font-size: 16px;
+  font-size: 0px;
+  color:rgb(19, 20, 36);
+}
+
+.batting-test{
+ background-color: rgb(19, 20, 36);
+ background-position: 0%
 }
 
 .bottomtags {
-  margin-top: 30px;
+  margin-top: 10px;
 }
 
 .center {

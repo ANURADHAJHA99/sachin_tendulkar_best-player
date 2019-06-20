@@ -1,16 +1,6 @@
 <template>
-    <div class="side-bar">
-        <el-menu 
-            default-active="activeIndex"
-            class="el-menu-demo"
-           
-            mode="vertical"
-            @close="handleClose"
-            background-color="#434A50"
-            text-color="#fff"
-            active-te
-            xt-color="#ffd04b"
-            >
+    <div class="top-bar">
+        <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
             <el-menu-item @click="routeHome()" index="1">
             <i class="el-icon-d-arrow-right"></i>
             <span>Getting Started</span>
@@ -23,11 +13,12 @@
             <el-menu-item-group title="Batting Statistics">
                 <el-menu-item @click="routeBattingODI()" index="1-1">ODI</el-menu-item>
                 <el-menu-item @click="routeBattingTest()" index="1-2">Test</el-menu-item>
+                <el-menu-item @click="routebatting_test_2004()" index="1-3">2004 statistics</el-menu-item>
             </el-menu-item-group>
             <el-menu-item-group title="Bowling Statistics">
                 <el-menu-item @click="routeBowlingODI()" index="1-3">ODI</el-menu-item>
                 <el-menu-item @click="routeBowlingTest()" index="1-4">Test</el-menu-item>
-                 <el-menu-item @click="routebatting_test_2004()" index="1-4">2004 statistics</el-menu-item>
+                 
             </el-menu-item-group>
             </el-submenu>
             <el-menu-item @click="routeConclusion()" index="4">
